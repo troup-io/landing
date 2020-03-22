@@ -1,0 +1,43 @@
+{
+  "npm.packageManager": "yarn",
+  "task.autoDetect": "off",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#66398a",
+    "titleBar.activeForeground": "#fff",
+    "titleBar.inactiveBackground": "#4d2755"
+  },
+  "editor.colorDecorators": true,
+  "editor.rulers": [
+    { "column": 80, "color": "#704e0358" },
+    { "column": 100, "color": "#9c040488" }
+  ],
+  "eslint.validate": ["typescript", "typescriptreact"],
+  "eslint.packageManager": "yarn",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "timeline.showView": true,
+  "npm.autoDetect": "off",
+  "npm.fetchOnlinePackageInfo": true,
+  "files.associations": {
+    "*rc": "json"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/yarn.lock": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/yarn.lock": true,
+    "**/.eslintrc": true
+  }
+}
