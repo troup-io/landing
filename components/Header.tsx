@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <header>
             <a href="/">
-                <img src="images/header-logo.png" width="120" alt="Troup Logo" />
+                <img src="images/header-logo.png" alt="Troup Logo" className={styles.logo} />
             </a>
 
             <ul className={styles.nav}>

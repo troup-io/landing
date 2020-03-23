@@ -4,26 +4,57 @@ main {
     height: 100%;
     padding: $padding;
     overflow: hidden;
+    text-align: center;
 
     .people {
         margin-top: auto;
         margin-bottom: -$padding * 5;
         flex-shrink: 1;
+
+        @include breakpoint($laptops) {
+            width: 75%;
+        }
+
+        @include breakpoint($tablets-landscape) {
+            width: 65%;
+        }
+
+        @include breakpoint($tablets-portrait) {
+            margin-top: 10%;
+            margin-bottom: -35%;
+            width: 95%;
+        }
+
+        @include breakpoint($mobiles-landscape) {
+            display: none;
+        }
+
+        @include breakpoint($mobiles-portrait) {
+            width: 95%;
+        }
     }
 
     > h1 {
-        font-size: 36px;
-        font-weight: medium;
+        font-size: 2.75rem;
+        font-weight: bold;
+
+        @include breakpoint($mobiles-portrait) {
+            margin-top: 0;
+        }
+
+        @include breakpoint($mobiles-landscape) {
+            margin-top: 0;
+        }
     }
 
     > h2 {
         margin: $margin/2 0 $margin;
-        font-size: 20px;
+        font-size: 1.5rem;
         font-weight: normal;
-        text-align: center;
     }
 
     > h3 {
+        font-size: 1.25rem;
         color: $dark;
         font-weight: normal;
     }
@@ -31,10 +62,14 @@ main {
     .button_group {
         @include flex(center, center);
 
+        @include breakpoint($mobiles-portrait) {
+            @include flex(center, center, column);
+        }
+
         &__button {
             padding: $padding $padding * 2.5;
             color: $purple;
-            font-size: 20px;
+            font-size: 1.5rem;
             background: transparent;
             border: 1px solid $purple;
             border-radius: $border-radius;
@@ -49,10 +84,28 @@ main {
                 transform: scale(1.05);
             }
 
+            @include breakpoint($mobiles-portrait) {
+                width: 150px;
+                margin: 0 0 $margin;
+            }
+
             &__primary {
                 margin: 0 $margin * 2;
                 color: $white;
                 background: $purple;
+
+                &__mobile {
+                    display: none;
+                }
+
+                @include breakpoint($mobiles-portrait) {
+                    display: none;
+
+                    &__mobile {
+                        display: block;
+                        margin: 0 0 $margin;
+                    }
+                }
             }
         }
     }

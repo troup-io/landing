@@ -8,9 +8,27 @@ header {
     padding: $padding;
     background: $white;
 
+    @include breakpoint($mobiles-portrait) {
+        @include flex(center, center, column, 0);
+    }
+
+    .logo {
+        width: 120px;
+
+        @include breakpoint($mobiles-portrait) {
+            height: 50px;
+        }
+
+        @include breakpoint($mobiles-landscape) {
+            width: 95px;
+        }
+    }
+
     .nav {
         display: flex;
         align-items: center;
+        margin: 0;
+        padding-left: 0;
         list-style-type: none;
 
         &__item {
@@ -30,6 +48,14 @@ header {
                 color: $white;
                 background: $purple;
                 box-shadow: 0 0 15px 3px rgba(lighten($purple, 45%), 0.5);
+            }
+
+            @include breakpoint($mobiles-portrait) {
+                font-size: 1.25rem;
+            }
+
+            @include breakpoint($mobiles-landscape) {
+                font-size: 1.35rem;
             }
         }
     }

@@ -13,6 +13,14 @@ body {
     font-family: 'Red Hat Text', sans-serif;
     font-size: 14px;
     background: $white;
+
+    @include breakpoint($mobiles-portrait) {
+        font-size: 12px;
+    }
+
+    @include breakpoint($mobiles-landscape) {
+        font-size: 11px;
+    }
 }
 
 * {
