@@ -1,0 +1,36 @@
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    @include flex(center, space-between, row, 0);
+    align-self: stretch;
+    margin: $margin;
+    padding: $padding;
+    background: $white;
+
+    .nav {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+
+        &__item {
+            padding: $padding $padding * 2;
+            border-radius: $border-radius;
+            transition: all 0.25s ease;
+            cursor: pointer;
+
+            &:active,
+            &:visited,
+            &:link {
+                color: $dark;
+                text-decoration: none;
+            }
+
+            &:hover {
+                color: $white;
+                background: $purple;
+                box-shadow: 0 0 15px 3px rgba(lighten($purple, 45%), 0.5);
+            }
+        }
+    }
+}
