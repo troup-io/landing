@@ -15,11 +15,11 @@ body {
     background: $white;
 
     @include breakpoint($mobiles-portrait) {
-        font-size: 12px;
+        font-size: 8px;
     }
 
     @include breakpoint($mobiles-landscape) {
-        font-size: 11px;
+        font-size: 10px;
     }
 }
 

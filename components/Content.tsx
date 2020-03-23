@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from '../styles/main.scss';
+import { classes } from '../utils';
 
 export default function Content() {
     return (
@@ -13,18 +14,29 @@ export default function Content() {
             </h2>
             <h3>Coming soon.</h3>
             <div className={styles.button_group}>
-                <button
-                    className={`${styles.button_group__button} ${styles.button_group__button__primary} ${styles.button_group__button__primary__mobile}`}
+                <a
+                    href="https://github.com/troup-io"
+                    className={classes(
+                        styles.button_group__button,
+                        styles.button_group__button__primary,
+                        styles.button_group__button__primary__mobile
+                    )}
                 >
                     Contribute
-                </button>
-                <button className={styles.button_group__button}>Join Chat</button>
-                <button
-                    className={`${styles.button_group__button} ${styles.button_group__button__primary}`}
+                </a>
+                <a href="https://spectrum.chat/troup" className={styles.button_group__button}>
+                    Join Chat
+                </a>
+                <a
+                    href="https://github.com/troup-io/troup-server"
+                    className={classes(
+                        styles.button_group__button,
+                        styles.button_group__button__primary
+                    )}
                 >
                     Contribute
-                </button>
-                <button className={styles.button_group__button}>Features</button>
+                </a>
+                <a className={styles.button_group__button}>Features</a>
             </div>
             <img
                 src="images/people.svg"
