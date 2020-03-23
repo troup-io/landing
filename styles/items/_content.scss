@@ -1,0 +1,59 @@
+main {
+    @include flex(center, center, column);
+    align-self: stretch;
+    height: 100%;
+    padding: $padding;
+    overflow: hidden;
+
+    .people {
+        margin-top: auto;
+        margin-bottom: -$padding * 5;
+        flex-shrink: 1;
+    }
+
+    > h1 {
+        font-size: 36px;
+        font-weight: medium;
+    }
+
+    > h2 {
+        margin: $margin/2 0 $margin;
+        font-size: 20px;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    > h3 {
+        color: $dark;
+        font-weight: normal;
+    }
+
+    .button_group {
+        @include flex(center, center);
+
+        &__button {
+            padding: $padding $padding * 2.5;
+            color: $purple;
+            font-size: 20px;
+            background: transparent;
+            border: 1px solid $purple;
+            border-radius: $border-radius;
+            outline: 0;
+            transition: all 0.25s ease;
+            cursor: pointer;
+
+            &:hover {
+                color: $white;
+                background: $purple;
+                box-shadow: 0 0 15px 3px rgba(lighten($purple, 45%), 0.5);
+                transform: scale(1.05);
+            }
+
+            &__primary {
+                margin: 0 $margin * 2;
+                color: $white;
+                background: $purple;
+            }
+        }
+    }
+}
