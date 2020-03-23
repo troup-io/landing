@@ -5,3 +5,27 @@
     flex-flow: $flow;
     flex-shrink: $shrink;
 }
+
+@mixin breakpoint($device) {
+    @if ($device== '') {
+        $device: $laptops;
+    }
+
+    $min: map-deep-get($breakpoints, $device, 'min');
+    $max: map-deep-get($breakpoints, $device, 'max');
+    $orientation: map-deep-get($breakpoints, $device, 'orientation');
+
+    @if ($orientation== '') {
+        $orientation: 'portrait';
+    }
+
+    @if ($device!=$mobiles-landscape) {
+        @media screen and (min-width: $min) and (max-width: $max) and (orientation: $orientation) {
+            @content;
+        }
+    } @else {
+        @media screen and (max-height: $max) and (orientation: landscape) {
+            @content;
+        }
+    }
+}

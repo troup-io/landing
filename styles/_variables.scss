@@ -31,3 +31,52 @@ $purple: #402266;
 $margin: 10px;
 $padding: 10px;
 $border-radius: 999px;
+
+// breakpoints
+$widescreens: 'widescreens';
+$laptops: 'laptops';
+$tablets-portrait: 'tablets-portrait';
+$tablets-landscape: 'tablets-landscape';
+$mobiles-portrait: 'mobiles-portrait';
+$mobiles-landscape: 'mobiles-landscape';
+
+$breakpoints: (
+    $widescreens: (
+        'min': 1601px,
+        'max': 99999999px,
+    ),
+    $laptops: (
+        'min': 1200px,
+        'max': 1600px,
+    ),
+    $tablets-portrait: (
+        'min': 601px,
+        'max': 1199px,
+        'orientation': portrait,
+    ),
+    $tablets-landscape: (
+        'min': 601px,
+        'max': 1199px,
+        'orientation': landscape,
+    ),
+    $mobiles-portrait: (
+        'min': 0,
+        'max': 600px,
+        'orientation': portrait,
+    ),
+    $mobiles-landscape: (
+        'min': 0,
+        'max': 400px,
+        'orientation': landscape,
+    ),
+);
+
+/**
+* FUNCTIONS
+**/
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
