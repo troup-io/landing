@@ -1,19 +1,24 @@
 import Head from 'next/head';
 
-import styles from '../styles/main.scss';
+import Header from '../components/Header';
+import Content from '../components/Content';
 
-const Home = () => (
-    <div className={styles.container}>
-        <Head>
-            <title>Troup - Simplifying everything about teamwork.</title>
-            <link rel="icon" href="/favicon.ico" />
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-        </Head>
+import '../styles/main.scss';
 
-        <main className="container">
-            <img src="./logo.svg" width="150" alt="Troup Logo" />
-        </main>
-    </div>
-);
-
-export default Home;
+export default function Home() {
+    return (
+        <section>
+            <Head>
+                <title>Troup - Simplifying everything about teamwork.</title>
+                <link rel="icon" href="/favicon.ico" />
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                    key="viewport"
+                />
+            </Head>
+            <Header />
+            <Content />
+        </section>
+    );
+}
