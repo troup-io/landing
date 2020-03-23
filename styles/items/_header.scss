@@ -33,21 +33,24 @@ header {
         list-style-type: none;
 
         &__item {
+            margin: 0 $margin/2 0 0;
             padding: $padding $padding * 2;
+            color: $dark;
+            text-decoration: none;
             border-radius: $border-radius;
             transition: all 0.25s ease;
             cursor: pointer;
 
-            &__primary {
-                background: $purple;
-                color: $white;
+            &:last-of-type {
+                margin: 0;
             }
 
-            &:active,
-            &:visited,
-            &:link {
-                color: $dark;
-                text-decoration: none;
+            &__primary {
+                font-weight: bold;
+            }
+
+            &__mobile {
+                display: none;
             }
 
             &:hover {
@@ -59,6 +62,14 @@ header {
             @include breakpoint($mobiles-portrait) {
                 font-size: 1.5rem;
                 padding: $padding / 2 $padding;
+
+                &__primary {
+                    display: none;
+                }
+
+                &__mobile {
+                    display: block;
+                }
             }
 
             @include breakpoint($mobiles-landscape) {
