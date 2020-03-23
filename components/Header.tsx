@@ -24,7 +24,10 @@ export default function Header() {
                 >
                     <li>Contribute</li>
                 </a>
-                <a className={styles.nav__item} href="https://spectrum.chat/troup">
+                <a
+                    className={styles.nav__item}
+                    href="https://github.com/orgs/troup-io/teams/discussions"
+                >
                     <li>Join Chat</li>
                 </a>
                 <a

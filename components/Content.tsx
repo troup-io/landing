@@ -24,7 +24,10 @@ export default function Content() {
                 >
                     Contribute
                 </a>
-                <a href="https://spectrum.chat/troup" className={styles.button_group__button}>
+                <a
+                    href="https://github.com/orgs/troup-io/teams/discussions"
+                    className={styles.button_group__button}
+                >
                     Join Chat
                 </a>
                 <a
