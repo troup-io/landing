@@ -14,7 +14,7 @@ export default function Header() {
                     <li>Docs</li>
                 </a>
                 <a className={styles.nav__item} href="https://github.com/troup-io">
-                    <li>Contributing</li>
+                    <li>Contribute</li>
                 </a>
                 <a className={styles.nav__item} href="https://spectrum.chat/troup">
                     <li>Join Chat</li>
