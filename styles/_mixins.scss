@@ -8,8 +8,6 @@
 
 @mixin breakpoint($devices...) {
     @each $device in $devices {
-        @debug $device + ' in breakpoint';
-
         @if ($device== '') {
             $device: $laptops;
         }
