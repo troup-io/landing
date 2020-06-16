@@ -59,6 +59,10 @@ h6 {
     @include breakpoint($tablets-landscape, $mobiles-landscape, $mobiles-portrait) {
         overflow-y: auto;
     }
+
+    @include breakpoint($mobiles-portrait) {
+        padding: $padding * 3 0;
+    }
 }
 
 .background {
@@ -85,6 +89,15 @@ h6 {
     @include flex(flex-start, flex-start, column);
     height: 100%;
     z-index: 1;
+
+    @include breakpoint(
+        $tablets-landscape,
+        $tablets-portrait,
+        $mobiles-landscape,
+        $mobiles-portrait
+    ) {
+        height: max-content;
+    }
 }
 
 header {
