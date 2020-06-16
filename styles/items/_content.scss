@@ -1,113 +1,122 @@
 main {
-    @include flex(center, center, column);
+    @include flex(center, center, row, 1);
     align-self: stretch;
-    height: 100%;
-    padding: $padding;
+    width: 100%;
+    max-width: 1280px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: $padding * 3;
     overflow: hidden;
-    text-align: center;
 
-    .people {
-        margin-top: auto;
-        margin-bottom: -$padding * 5;
-        flex-shrink: 1;
+    @include breakpoint($tablets-landscape, $mobiles-landscape, $mobiles-portrait) {
+        @include flex(center, flex-start, column, 0);
+        height: max-content;
+    }
 
-        @include breakpoint($laptops) {
-            width: 75%;
+    @include breakpoint($tablets-portrait) {
+        @include flex(center, center, column, 1);
+    }
+
+    .half {
+        @include flex(flex-start, center, column);
+        width: 50%;
+        max-width: 420px;
+        font-weight: normal;
+        text-align: left;
+
+        &:first-of-type {
+            margin: 0 $margin * 20 0 0;
+        }
+
+        > h1 {
+            margin: 0 0 $margin * 1.5;
+            font-size: 2.5rem;
+        }
+
+        > h2 {
+            margin: 0 0 $margin;
+            font-size: 1.3rem;
+            font-weight: normal;
+        }
+
+        > h3 {
+            margin: 0 0 $margin;
+            font-weight: normal;
+        }
+
+        > ul {
+            width: 100%;
+            margin: $margin * 2 0 0;
+            padding: 0;
+            list-style-type: none;
+
+            > li {
+                position: relative;
+                margin: 0 0 $margin * 2;
+                padding-left: $padding * 4.5;
+                font-size: 1.5rem;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    display: block;
+                    width: $padding * 3;
+                    height: $padding * 3;
+                    background: url('/images/tick.svg') no-repeat center / contain;
+                    transform: translate(0, -50%);
+                }
+            }
+        }
+
+        > img {
+            width: 100%;
+            align-self: center;
         }
 
         @include breakpoint($tablets-landscape) {
-            width: 65%;
+            &:first-of-type {
+                margin: 0 $margin * 1 0 0;
+            }
         }
 
-        @include breakpoint($tablets-portrait) {
-            margin-top: 10%;
-            margin-bottom: -35%;
-            width: 95%;
-        }
-
-        @include breakpoint($mobiles-landscape) {
-            display: none;
-        }
-
-        @include breakpoint($mobiles-portrait) {
-            width: 95%;
-        }
-    }
-
-    > h1 {
-        font-size: 2.75rem;
-        font-weight: bold;
-
-        @include breakpoint($mobiles-portrait) {
-            margin-top: 0;
-        }
-
-        @include breakpoint($mobiles-landscape) {
-            margin-top: 0;
-        }
-    }
-
-    > h2 {
-        margin: $margin/2 0 $margin;
-        font-size: 1.5rem;
-        font-weight: normal;
-    }
-
-    > h3 {
-        font-size: 1.25rem;
-        color: $dark;
-        font-weight: normal;
-    }
-
-    .button_group {
-        @include flex(center, center);
-
-        @include breakpoint($mobiles-portrait) {
+        @include breakpoint(
+            $tablets-landscape,
+            $tablets-portrait,
+            $mobiles-landscape,
+            $mobiles-portrait
+        ) {
             @include flex(center, center, column);
+            width: 100%;
+            max-width: 65%;
+            text-align: center;
+
+            &:first-of-type {
+                margin: 0 0 $margin * 1;
+            }
+
+            > img {
+                width: 50%;
+            }
         }
 
-        &__button {
-            padding: $padding $padding * 2.5;
-            color: $purple;
-            font-size: 1.5rem;
-            text-decoration: none;
-            background: transparent;
-            border: 1px solid $purple;
-            border-radius: $border-radius;
-            outline: 0;
-            transition: all 0.25s ease;
-            cursor: pointer;
+        @include breakpoint($mobiles-portrait) {
+            max-width: 95%;
+        }
+    }
 
-            &:hover {
-                color: $white;
-                background: $purple;
-                box-shadow: 0 0 15px 3px rgba(lighten($purple, 45%), 0.5);
-                transform: scale(1.05);
-            }
+    .halfMobile {
+        display: none;
 
-            @include breakpoint($mobiles-portrait) {
-                width: 150px;
-                margin: 0 0 $margin;
-            }
-
-            &__primary {
-                margin: 0 $margin * 2;
-                color: $white;
-                background: $purple;
-
-                &__mobile {
-                    display: none;
-                }
-
-                @include breakpoint($mobiles-portrait) {
-                    display: none;
-
-                    &__mobile {
-                        display: block;
-                        margin: 0 0 $margin;
-                    }
-                }
-            }
+        @include breakpoint(
+            $tablets-landscape,
+            $tablets-portrait,
+            $mobiles-landscape,
+            $mobiles-portrait
+        ) {
+            display: block;
+            text-align: left;
         }
     }
 }

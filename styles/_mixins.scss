@@ -6,26 +6,30 @@
     flex-shrink: $shrink;
 }
 
-@mixin breakpoint($device) {
-    @if ($device== '') {
-        $device: $laptops;
-    }
+@mixin breakpoint($devices...) {
+    @each $device in $devices {
+        @debug $device + ' in breakpoint';
 
-    $min: map-deep-get($breakpoints, $device, 'min');
-    $max: map-deep-get($breakpoints, $device, 'max');
-    $orientation: map-deep-get($breakpoints, $device, 'orientation');
-
-    @if ($orientation== '') {
-        $orientation: 'portrait';
-    }
-
-    @if ($device!=$mobiles-landscape) {
-        @media screen and (min-width: $min) and (max-width: $max) and (orientation: $orientation) {
-            @content;
+        @if ($device== '') {
+            $device: $laptops;
         }
-    } @else {
-        @media screen and (max-height: $max) and (orientation: landscape) {
-            @content;
+
+        $min: map-deep-get($breakpoints, $device, 'min');
+        $max: map-deep-get($breakpoints, $device, 'max');
+        $orientation: map-deep-get($breakpoints, $device, 'orientation');
+
+        @if ($orientation== '') {
+            $orientation: 'portrait';
+        }
+
+        @if ($device!=$mobiles-landscape) {
+            @media (min-width: $min) and (max-width: $max) and (orientation: $orientation) {
+                @content;
+            }
+        } @else {
+            @media (max-height: $max) and (orientation: landscape) {
+                @content;
+            }
         }
     }
 }

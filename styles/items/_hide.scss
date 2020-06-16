@@ -1,0 +1,35 @@
+@include breakpoint($tablets-landscape) {
+    [data-hide='tablet-lower'] {
+        display: none;
+    }
+}
+
+@include breakpoint($tablets-portrait) {
+    [data-hide='tablet-lower'] {
+        display: none;
+    }
+}
+
+@include breakpoint($mobiles-landscape) {
+    [data-hide='tablet-lower'] {
+        display: none;
+    }
+}
+
+@include breakpoint($mobiles-portrait) {
+    [data-hide='tablet-lower'] {
+        display: none;
+    }
+}
+
+@include breakpoint($laptops) {
+    [data-hide='laptops'] {
+        display: none;
+    }
+}
+
+@include breakpoint($widescreens) {
+    [data-hide='laptop'] {
+        display: none;
+    }
+}

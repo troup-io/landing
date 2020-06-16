@@ -1,25 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans:400,700|Lato:400,700&display=swap');
 
 @import './variables';
 @import './mixins';
 
 html,
-body {
+body,
+#__next {
     width: 100%;
-    min-height: 100%;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    color: $darker;
-    font-family: 'Red Hat Text', sans-serif;
+    color: $dark;
+    font-family: 'Lato', sans-serif;
     font-size: 14px;
-    background: $white;
+
+    @include breakpoint($tablets-landscape, $tablets-portrait) {
+        font-size: 16px;
+    }
 
     @include breakpoint($mobiles-portrait) {
-        font-size: 8px;
+        font-size: 12px;
     }
 
     @include breakpoint($mobiles-landscape) {
-        font-size: 10px;
+        font-size: 14px;
     }
 }
 
@@ -37,10 +41,110 @@ button {
     font-family: inherit;
 }
 
-section {
-    height: 100vh;
-    @include flex(flex-start, flex-start, column);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'DM Sans', sans-serif;
 }
 
-@import './items/header';
+#wrapper {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    @include breakpoint($tablets-landscape, $mobiles-landscape, $mobiles-portrait) {
+        overflow-y: auto;
+    }
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -10%);
+    z-index: 0;
+
+    @include breakpoint($tablets-portrait, $mobiles-portrait) {
+        top: -15%;
+        width: 200%;
+    }
+
+    @include breakpoint($tablets-landscape, $mobiles-landscape) {
+        transform: translate(-50%, -15%) scale(1.25);
+    }
+}
+
+#root {
+    position: relative;
+    @include flex(flex-start, flex-start, column);
+    height: 100%;
+    z-index: 1;
+}
+
+header {
+    top: 0;
+    left: 0;
+    @include flex(center, flex-start, row, 0);
+    align-self: stretch;
+    margin: $margin * 2;
+
+    .logo {
+        width: 120px;
+
+        @include breakpoint($tablets-landscape, $tablets-portrait) {
+            width: 200px;
+        }
+
+        @include breakpoint($mobiles-portrait) {
+            width: auto;
+            height: 50px;
+        }
+
+        @include breakpoint($mobiles-landscape) {
+            width: 95px;
+        }
+    }
+
+    @include breakpoint(
+        $tablets-landscape,
+        $tablets-portrait,
+        $mobiles-landscape,
+        $mobiles-portrait
+    ) {
+        justify-content: center;
+    }
+}
+
+footer {
+    @include flex(center, center, row, 0);
+    align-self: stretch;
+    padding: $padding * 2;
+
+    > a {
+        &:link,
+        &:active,
+        &:hover,
+        &:visited {
+            color: $dark;
+            text-decoration: none;
+
+            &:after {
+                content: '-';
+                display: inline;
+                margin: 0 $margin 0;
+            }
+
+            &:last-of-type:after {
+                display: none;
+            }
+        }
+    }
+}
+
 @import './items/content';
+@import './items/hide';
