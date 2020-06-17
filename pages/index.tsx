@@ -9,7 +9,7 @@ import styles from '../styles/main.scss';
 
 export default function Home() {
     const [accepted, setAccepted] = useState(
-        typeof window !== 'undefined' && !window.localStorage.getItem('troup-cookie-accept')
+        typeof window !== 'undefined' && !!window.localStorage.getItem('troup-cookie-accept')
     );
 
     const acceptCookies = () => {
