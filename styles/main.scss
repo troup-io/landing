@@ -160,5 +160,28 @@ footer {
     }
 }
 
+#cookiePolicy {
+    @include flex(center, space-between);
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    max-width: 600px;
+    padding: $padding * 3;
+    color: $white;
+    background: $dark;
+    border-radius: $border-radius;
+
+    > span {
+        flex-shrink: 0;
+        margin: 0 0 0 $margin;
+        padding: $padding;
+        color: darken($blue, 20%);
+        background: $white;
+        border-radius: $border-radius;
+        cursor: pointer;
+    }
+}
+
 @import './items/content';
 @import './items/hide';
